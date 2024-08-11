@@ -1,5 +1,8 @@
 # Shape Detection and Processing
 
+Team Name: Azmuth Alliance
+Members: Preyanshu Mishra, Sushant, Tanishq Verma
+
 ## Overview
 
 This project focuses on three core components designed to analyze and process shapes in images or polyline data:
