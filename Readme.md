@@ -18,7 +18,7 @@ The regularization process converts hand-drawn or irregular shapes from images o
 
 ### Examples
 
-![Regularization Example](examples/regularization_output.png)
+![Regularize](https://github.com/user-attachments/assets/62d605b7-b4b1-477b-9289-9b7cf817c01b)
 
 ### Usage
 
