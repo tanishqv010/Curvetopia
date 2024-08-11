@@ -158,9 +158,9 @@ def calculate_ellipse_area(ellipse):
     _, (MA, ma), _ = ellipse
     return np.pi * (MA / 2) * (ma / 2)
 
-def detect_shapes(image_path, min_major_axis=80, max_major_axis=1000, min_aspect_ratio=0.5, max_aspect_ratio=2,
-                  ellipse_percentage=0.3, circle_percentage=0.3, rectangle_percentage=0.3, min_continuous_points=6,
-                  min_circle_radius=10, min_side_length=30, area_difference_threshold=0.2):
+def detect_shapes(image_path, min_major_axis=70, max_major_axis=1000, min_aspect_ratio=0.2, max_aspect_ratio=2,
+                  ellipse_percentage=0.47, circle_percentage=0.16, rectangle_percentage=0.3, min_continuous_points=5,
+                  min_circle_radius=50, min_side_length=30, area_difference_threshold=0.2):
     image = cv2.imread(image_path)
     processed_image = detect_phase1(image_path)
     gray = cv2.cvtColor(processed_image, cv2.COLOR_BGR2GRAY)
