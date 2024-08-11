@@ -1,6 +1,6 @@
 # Shape Detection and Processing
 
-Team Name: Azmuth Alliance
+Team Name: Azmuth Alliance </br>
 Members: Preyanshu Mishra, Sushant, Tanishq Verma
 
 ## Overview
