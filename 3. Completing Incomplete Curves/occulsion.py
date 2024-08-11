@@ -3,6 +3,7 @@ import numpy as np
 import svgwrite
 import matplotlib.pyplot as plt
 from skimage.measure import approximate_polygon, find_contours
+from polygon import detect_phase1
 
 def imgae_to_polyline(image_path):
     img = cv2.imread(image_path, 0)
