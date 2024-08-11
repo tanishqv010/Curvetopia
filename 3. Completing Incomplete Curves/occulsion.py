@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import svgwrite
 import matplotlib.pyplot as plt
-from skimage.measure import approximate_polygon, find_contours
 from polygon import detect_phase1
+from skimage.measure import approximate_polygon, find_contours
 
 def imgae_to_polyline(image_path):
     img = cv2.imread(image_path, 0)
@@ -126,7 +126,6 @@ def calculate_global_distance_threshold(contours, percentage=0.3, shape_type='el
                 elif shape_type == 'rectangle':
                     rect = cv2.minAreaRect(contour)
                     shape_points = generate_rectangle_points(rect)
-                
                 distances = find_all_distances_to_contour(shape_points, contour)
                 all_distances.extend(distances)
             except cv2.error as e:
@@ -154,13 +153,12 @@ def count_continuous_points_within_threshold(shape_points, contour, distance_thr
     return max_continuous
 
 def calculate_ellipse_area(ellipse):
-    """Calculate the area of an ellipse."""
     _, (MA, ma), _ = ellipse
     return np.pi * (MA / 2) * (ma / 2)
 
-def detect_shapes(image_path, min_major_axis=70, max_major_axis=1000, min_aspect_ratio=0.2, max_aspect_ratio=2,
-                  ellipse_percentage=0.47, circle_percentage=0.16, rectangle_percentage=0.3, min_continuous_points=5,
-                  min_circle_radius=50, min_side_length=30, area_difference_threshold=0.2):
+def detect_shapes(image_path, min_major_axis=80, max_major_axis=1000, min_aspect_ratio=0.5, max_aspect_ratio=2,
+                  ellipse_percentage=0.3, circle_percentage=0.3, rectangle_percentage=0.3, min_continuous_points=6,
+                  min_circle_radius=10, min_side_length=30, area_difference_threshold=0.2):
     image = cv2.imread(image_path)
     processed_image = detect_phase1(image_path)
     gray = cv2.cvtColor(processed_image, cv2.COLOR_BGR2GRAY)
@@ -199,20 +197,20 @@ def detect_shapes(image_path, min_major_axis=70, max_major_axis=1000, min_aspect
                     continuous_points_count = count_continuous_points_within_threshold(circle_points, contour, circle_distance_threshold)
                     if continuous_points_count >= min_continuous_points:
                         is_overlapping = any(
-    cv2.pointPolygonTest(
-        cv2.ellipse2Poly(
-            (int(vc[0][0]), int(vc[0][1])),
-            (int(radius), int(radius)),
-            0,
-            0,
-            360,
-            5
-        ),
-        (int(cx), int(cy)),
-        False
-    ) >= 0
-    for vc in valid_circles
-)
+                            cv2.pointPolygonTest(
+                                cv2.ellipse2Poly(
+                                    (int(vc[0][0]), int(vc[0][1])),
+                                    (int(radius), int(radius)),
+                                    0,
+                                    0,
+                                    360,
+                                    5
+                                ),
+                                (int(cx), int(cy)),
+                                False
+                            ) >= 0
+                            for vc in valid_circles
+                        )
                         if not is_overlapping:
                             valid_circles.append(((cx, cy), radius))
             except cv2.error as e:
@@ -306,26 +304,18 @@ def image_from_paths(paths, image_size=(500, 500)):
     return img
 
 if __name__ == '__main__':
-    custom_choice = input("Enter '1' to input a CSV file or '2' to input an image file: ").strip()
-    if custom_choice == '1':
-        csv_path = input("Enter the path of the CSV file: ").strip()
-        try:
-            path_XYs = read_csv(csv_path)
-            image_size = (500, 500)
-            image = image_from_paths(path_XYs, image_size=image_size)
-            if image is not None:
-                save_status = cv2.imwrite('shapes_image.png', image)
-                if save_status:
-                    print("Image saved successfully.")
-                else:
-                    print("Failed to save the image.")
-                detect_shapes('shapes_image.png')
-            else:
-                print("Error: Failed to create image from paths.")
-        except Exception as e:
-            print(f"Error processing CSV file: {e}")
-    elif custom_choice == '2':
-        custom_image_path = input("Enter the path of the custom image: ").strip()
-        detect_shapes(custom_image_path)
-    else:
-        print("Invalid choice. Please enter '1' or '2'.")
+    min_major_axis = 70
+    max_major_axis = 1000
+    min_aspect_ratio = 0.2
+    max_aspect_ratio = 2
+    ellipse_percentage = 0.47
+    circle_percentage = 0.16
+    rectangle_percentage = 0.3
+    min_continuous_points = 5
+    min_circle_radius = 50
+    min_side_length = 30
+    area_difference_threshold = 0.2
+    custom_image_path = input("Enter the path of the custom image: ").strip()
+    detect_shapes(custom_image_path, min_major_axis, max_major_axis, min_aspect_ratio, max_aspect_ratio, 
+                    ellipse_percentage, circle_percentage, rectangle_percentage, min_continuous_points,
+                    min_circle_radius, min_side_length, area_difference_threshold)
