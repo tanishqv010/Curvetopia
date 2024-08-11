@@ -63,5 +63,5 @@ To perform occlusion completion:
 
 ## Additional Resources
 
-- **Demo**: [View the demo of the shape detection and processing system](https://your-demo-link.com)
-- **Google Colab**: [Open the Google Colab notebook for interactive execution](https://colab.research.google.com/your-notebook-link)
+- **Demo**: [View the demo of the shape detection and processing system](https://drive.google.com/drive/folders/1VFv4FwevESxdGaDDQXtsQz8vFNlBcWib?usp=sharing)
+- **Google Colab**: [Open the Google Colab notebook for interactive execution](https://colab.research.google.com/drive/17ZL4JkqX7e9FCS6UppqX0U2l0X9fhZt-?usp=sharing)
