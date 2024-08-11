@@ -12,6 +12,7 @@ def draw_rectangle(image, corners, color=(0, 0, 255), thickness=2):
         pt1 = tuple(map(int, corners[i]))
         pt2 = tuple(map(int, corners[(i + 1) % 4]))
         cv2.line(image, pt1, pt2, color, thickness)
+
 def is_valid_rectangle(corners, tolerance=10):
     angles = []
     if len(corners) < 4:
@@ -200,6 +201,7 @@ def generate_triangle_points(triangle, num_points=100):
             point = start_point * (1 - alpha) + end_point * alpha
             points.append(point)
     return np.array(points)
+
 
 def align_triangle(detected_triangle_points, centroid):
     side_length = cv2.norm(detected_triangle_points[0] - detected_triangle_points[1])
