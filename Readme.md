@@ -35,7 +35,7 @@ Symmetry detection analyzes shapes within an image to identify axes of symmetry.
 
 ### Example Output
 
-![Symmetry Detection Example](examples/symmetry_output.png)
+![Symmetry Detection Example](![Arrow Symmetry](https://github.com/user-attachments/assets/4f900261-9c56-49ef-9975-baf0ae2bb2a9))
 
 ### Usage
 
@@ -52,7 +52,7 @@ The occlusion completion process identifies and reconstructs occluded or missing
 
 ### Example Output
 
-![Occlusion Completion Example](examples/occlusion_output.png)
+![Occlusion Completion Example](![Pin Occlusion](https://github.com/user-attachments/assets/1fd20906-2df3-4c8e-a75e-bd2a6f2b9000))
 
 ### Usage
 
