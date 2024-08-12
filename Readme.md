@@ -1,7 +1,7 @@
 # Shape Detection and Processing
 
 Team Name: Azmuth Alliance </br>
-Members: Preyanshu Mishra, Sushant, Tanishq Verma
+Members: Preyanshu Mishra
 
 ## Overview
 
@@ -22,6 +22,12 @@ The regularization process converts hand-drawn or irregular shapes from images o
 ### Examples
 
 ![Regularize](https://github.com/user-attachments/assets/b041e67e-244d-4e91-9848-5b50d0938bfa)
+![image](https://github.com/user-attachments/assets/38df1c5a-bdc2-49db-9340-3a7a92221f7e)
+
+
+
+
+
 
 ### Usage
 
@@ -39,6 +45,10 @@ Symmetry detection analyzes shapes within an image to identify axes of symmetry.
 ### Example Output
 
 ![Arrow Symmetry](https://github.com/user-attachments/assets/4f900261-9c56-49ef-9975-baf0ae2bb2a9)
+![image](https://github.com/user-attachments/assets/ae1cec01-66d1-40ba-8cf4-14120f6369b0)
+![image](https://github.com/user-attachments/assets/f3c98897-0850-4bd3-93e5-d09cb2ba30fd)
+
+
 
 ### Usage
 
@@ -56,6 +66,14 @@ The occlusion completion process identifies and reconstructs occluded or missing
 ### Example Output
 
 ![Pin Occlusion](https://github.com/user-attachments/assets/1fd20906-2df3-4c8e-a75e-bd2a6f2b9000)
+![image](https://github.com/user-attachments/assets/bf6ae19e-fc07-4b69-8d12-1c8d763283bb)
+![image](https://github.com/user-attachments/assets/ffb87cb2-3e18-4996-97cf-02fb58443554)
+![image](https://github.com/user-attachments/assets/9dc89eb4-0f7f-4b94-8fd7-579f591d5512)
+![image](https://github.com/user-attachments/assets/a56eaf94-5a98-42d1-8293-491ea8a5968a)
+
+
+
+
 
 ### Usage
 
